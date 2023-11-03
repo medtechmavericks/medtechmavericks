@@ -68,22 +68,27 @@ if(isset($_SESSION['user_name'])){
                 <thead>
                     <tr>
                         <td>Temperature</td>
-                        <td>Heart Rate</td>
-                        <td>Pulse Oximeter</td>
+                        <!-- <td>Heart Rate</td>
+                        <td>Pulse Oximeter</td> -->
                         <td></td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td class="people">
-                            <div class="people-de">
-                                <h5>97.6F</h5>
+                            <div>
+                                <h5><iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2318088/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&yaxismax=110"></iframe></h5>
                             </div>
                         </td>
-                        <td class="people-des">
+                        <td class="people">
+                            <div class="people-de">
+                                <h5><iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2318088/widgets/732840"></iframe></h5>
+                            </div>
+                        </td>
+                        <!-- <td class="people-des">
                            <h5>80</h5>
                         </td>
-                        <td class="edit">97%</td>
+                        <td class="edit">97%</td> -->
                     </tr>
                 </tbody>
             </table>
