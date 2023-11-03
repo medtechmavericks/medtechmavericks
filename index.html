@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="icon" type="image/x-icon" href="123.png">
+    <title>Login Form</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <header class="header">
-        <a href="index.html" class="logo"><ion-icon name="medkit"></ion-icon>MedTech Mavericks</a>
+        <a href="register_form.html" class="logo"><ion-icon name="medkit"></ion-icon>MedTech Mavericks</a>
         <nav class="nav">
             <a href="about.html">About</a>
+            <a href="register_form.html">Sign Up</a>
             <a href="index.html">Sign In</a>
         </nav>
 </header>
@@ -24,17 +24,46 @@
     </div>
     <form action="" method="post">
         <h3>Admin Login</h3>    
-            <input type="text" name="username" placeholder="Username" />
+            <!-- <input type="text" name="username" placeholder="Username" />
             <input type="password" name="password" placeholder="Password" />
             <input type="submit" class="login-btn" value="Login" />
             <div class="register-link">
                 <p></p>
-            </div>
+            </div> -->
+            <input type="email" id="login-username" required placeholder="Email"><br>
+            <input type="password" id="login-password" required placeholder="Password"><br>
+            <button class="submit-btn" type="button" onclick="login()">Login</button>
+            <p>Don't have an account? <a href="register_form.html">Register</a></p>
                 
     </form>
-    <script src="script.js"></script>
 
 </div>
     
 </body>
+<script>
+    function login() {
+        var username = document.getElementById("login-username").value;
+        var password = document.getElementById("login-password").value;
+        
+        // Get user data from localStorage
+        var users = JSON.parse(localStorage.getItem("users")) || [];
+        
+        // Find the user based on the entered username and password
+        var user = users.find(function (user) {
+            return user.email === username && user.password === password;
+        });
+
+        if (user) {
+            if (user.userType === "user") {
+                alert("Logged in as a User. Redirecting to User Page.");
+                window.location.href = "user_page.html"; // Redirect to the user page
+            } else if (user.userType === "admin") {
+                alert("Logged in as an Admin. Redirecting to Admin Page.");
+                window.location.href = "admin_page.html"; // Redirect to the admin page
+            }
+        } else {
+            alert("Invalid email or password.");
+        }
+    }
+</script>
 </html>
