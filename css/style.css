@@ -267,6 +267,10 @@ body::-webkit-scrollbar{
       display: none;
    }
 
+   .content_l{
+      display: none;
+   }
+
    .input-box {
        width: 50%;
    }
